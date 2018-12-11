@@ -1,0 +1,7 @@
+.idea/
+node_modules/
+elm-stuff/
+build/
+.gradle/
+gradle/
+lib/
