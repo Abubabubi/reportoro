@@ -1,5 +1,6 @@
 package com.antonkom.reportoro
 
+import org.springframework.boot.Banner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
@@ -7,5 +8,7 @@ import org.springframework.boot.runApplication
 class ReportoroApplication
 
 fun main(args: Array<String>) {
-    runApplication<ReportoroApplication>(*args)
+    runApplication<ReportoroApplication>(*args) {
+        setBannerMode(Banner.Mode.OFF)
+    }
 }
