@@ -1,6 +1,7 @@
 node_modules/
 elm-stuff/
 build/
+out/
 
 .gradle
 /build/
