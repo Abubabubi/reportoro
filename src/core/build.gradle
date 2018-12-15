@@ -51,9 +51,31 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	runtimeOnly('com.h2database:h2')
-	testImplementation('org.springframework.boot:spring-boot-starter-test')
+	testCompile('org.springframework.boot:spring-boot-starter-test') {
+		exclude module: 'junit'
+	}
+	testImplementation('org.junit.jupiter:junit-jupiter-api')
+	testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine')
 }
 
 bootJar {
 	mainClassName = 'com.antonkom.reportoro.ReportoroApplication'
+}
+
+test {
+	useJUnitPlatform()
+}
+
+// FIXME: Without those it always resets source and test root
+sourceSets {
+	main {
+		java {
+			srcDirs = ['src/main']
+		}
+	}
+	test {
+		java {
+			srcDirs = ['src/test']
+		}
+	}
 }
